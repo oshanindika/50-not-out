@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Golden Jubilee - 50 Not Out</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root {
+            --cream: #FDFCF8;
+            --deep-green: #1A3021;
+            --gold: #AA8928;
+            --gold-vibrant: #B8860B;
+        }
+        body { 
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream);
+            color: var(--deep-green);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .serif { font-family: 'Playfair Display', serif; }
+        
+        .premium-card {
+            background: white;
+            border: 1px solid rgba(170, 137, 40, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 450px;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .gold-btn {
+            background: linear-gradient(135deg, #D4AF37, #AA8928);
+            color: white;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            padding: 18px;
+            border-radius: 50px;
+            width: 100%;
+            transition: opacity 0.3s;
+        }
+        .gold-btn:active { opacity: 0.8; transform: scale(0.98); }
+
+        .hidden { display: none; }
+        .fade-in { animation: fadeIn 0.6s ease forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <div class="p-4 w-full flex justify-center">
+        <div class="premium-card">
+            <div class="h-1.5 bg-[linear-gradient(90deg,#D4AF37,#AA8928)]"></div>
+            
+            <div class="p-8 md:p-10 text-center">
+                
+                <div id="stage-quiz">
+                    <h2 class="text-[11px] tracking-[0.4em] uppercase text-gray-700 font-bold mb-2">Selection Committee</h2>
+                    <h1 class="text-2xl serif italic mb-8">Eligibility Inquiry</h1>
+                    
+                    <div class="min-h-[200px] flex flex-col justify-center">
+                        <p id="question-text" class="text-lg serif italic text-gray-700 leading-relaxed mb-10"></p>
+                        <div class="space-y-3">
+                            <button onclick="nextQuestion()" class="gold-btn text-[10px]">Option A</button>
+                            <button onclick="nextQuestion()" class="w-full py-4 text-[10px] font-bold uppercase tracking-widest text-gray-500 border border-gray-200 rounded-full">Option B</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="stage-invite" class="hidden fade-in">
+                    <div class="mb-6 flex justify-center">
+                        <i data-lucide="award" class="text-[#D4AF37] w-10 h-10"></i>
+                    </div>
+                    <h2 class="text-[10px] uppercase tracking-[0.5em] text-gray-400 mb-2">The Golden Jubilee</h2>
+                    <h1 class="text-4xl serif font-bold mb-3">50 Not Out</h1>
+                    
+                    <p class="text-[1.2rem] text-[#AA8928] font-bold italic serif mb-8 drop-shadow-sm">
+                        Celebrating Oshan's Half-Century
+                    </p>
+                    
+                    <div class="space-y-5 text-left border-y border-gray-100 py-8 my-8 text-[11px] font-semibold tracking-widest text-gray-600 uppercase">
+                        <div class="flex items-center gap-4">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-[#D4AF37]"></i>
+                            <span>The Precinct - Dandenong Club</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <i data-lucide="calendar" class="w-4 h-4 text-[#D4AF37]"></i>
+                            <span>Sat 4th April | Coin Toss 2:00 PM</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <i data-lucide="shirt" class="w-4 h-4 text-[#D4AF37]"></i>
+                            <span>All Shades of White (Casual)</span>
+                        </div>
+                    </div>
+
+                    <p class="text-[14px] italic text-gray-800 font-semibold mb-8 leading-relaxed">
+                        Trading the crease for the green.<br>
+                        <span class="text-gray-700">Coldies, sun, and good company.</span>
+                    </p>
+
+                    <button onclick="revealRSVP()" class="gold-btn text-[10px]">Accept the Nomination</button>
+                </div>
+
+                <div id="stage-rsvp" class="hidden fade-in text-gray-800">
+                    <div class="py-10 bg-gray-50 rounded-xl border border-dashed border-gray-200">
+                        <h3 class="serif italic text-xl mb-4">You're in the Squad!</h3>
+                        <p class="text-[10px] uppercase tracking-widest text-gray-500 mb-6 px-6">Please notify the Captain of your attendance by 1st March 2026</p>
+                        
+                        <div class="nav-line h-[1px] bg-gray-200 w-1/2 mx-auto mb-6"></div>
+                        
+                        <p class="text-sm font-bold mb-1">RSVP TO Shashika</p>
+                        <p class="text-lg tracking-widest font-light">[0423581975]</p>
+                        
+                        <p class="mt-8 text-[11px] font-bold uppercase tracking-wide text-gray-600">
+                            Decision of the Third Umpire is final.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            { 
+                q: "A milestone has been reached. Do you celebrate with a humble raise of the bat or a spirited lap of honor?", 
+                a: "The Humble Salute", 
+                b: "The Spirited Lap" 
+            },
+            { 
+                q: "The afternoon sun is setting in. Is your preferred 'refreshment' an ice-cold coldie or a classic cuppa?", 
+                a: "A Frosty Coldie", 
+                b: "A Refined Cuppa" 
+            },
+            { 
+                q: "The Dress Code is 'All White.' Will you be arriving in crisp, tailored linens or 'Test Match' casuals?", 
+                a: "Tailored Linens", 
+                b: "Casual Whites" 
+            }
+        ];
+
+        let qIdx = 0;
+
+        function updateQ() {
+            const q = questions[qIdx];
+            document.getElementById('question-text').innerText = q.q;
+            const btns = document.querySelectorAll('#stage-quiz button');
+            btns[0].innerText = q.a;
+            btns[1].innerText = q.b;
+        }
+
+        function nextQuestion() {
+            qIdx++;
+            if (qIdx < questions.length) {
+                updateQ();
+            } else {
+                document.getElementById('stage-quiz').classList.add('hidden');
+                document.getElementById('stage-invite').classList.remove('hidden');
+            }
+        }
+
+        function revealRSVP() {
+            document.getElementById('stage-invite').classList.add('hidden');
+            document.getElementById('stage-rsvp').classList.remove('hidden');
+        }
+
+        updateQ();
+        lucide.createIcons();
+    </script>
+</body>
+</html>
